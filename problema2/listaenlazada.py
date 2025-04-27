@@ -33,13 +33,13 @@ class ListaEnlazada:
 
     
     def tiempo_total(self):
+        if self.cabeza is None:
+            return 0
         tiempos = []
         nodo_actual = self.cabeza
         while nodo_actual is not None:
             tiempos.append(nodo_actual.tiempo)
             nodo_actual = nodo_actual.siguiente
-        if not tiempos:
-            return 0
         total = sum([int(tiempo.split(':')[0]) * 60 + int(tiempo.split(':')[1]) for tiempo in tiempos])
         horas = total // 60
         minutos = total % 60
